@@ -5,15 +5,15 @@
  */
 package com.mycompany.practica4diu;
 
+import java.awt.Color;
+
 /**
  *
  * @author Grupo 6
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
+    
     public Interfaz() {
         initComponents();
     }
@@ -27,9 +27,9 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lienzo = new javax.swing.JPanel();
-        lienzo1 = new com.mycompany.practica4diu.Lienzo();
-        configurarLienzo = new javax.swing.JPanel();
+        panelLienzo = new javax.swing.JPanel();
+        lienzo = new com.mycompany.practica4diu.Lienzo();
+        panelConfigurar = new javax.swing.JPanel();
         labelBackground = new javax.swing.JLabel();
         background = new javax.swing.JComboBox<>();
         labelBrush = new javax.swing.JLabel();
@@ -38,50 +38,55 @@ public class Interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lienzo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        panelLienzo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
 
-        lienzo1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout lienzo1Layout = new javax.swing.GroupLayout(lienzo1);
-        lienzo1.setLayout(lienzo1Layout);
-        lienzo1Layout.setHorizontalGroup(
-            lienzo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        lienzo1Layout.setVerticalGroup(
-            lienzo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 255, Short.MAX_VALUE)
-        );
+        lienzo.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout lienzoLayout = new javax.swing.GroupLayout(lienzo);
         lienzo.setLayout(lienzoLayout);
         lienzoLayout.setHorizontalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lienzo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         lienzoLayout.setVerticalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lienzo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 255, Short.MAX_VALUE)
         );
 
-        configurarLienzo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Configuración Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        javax.swing.GroupLayout panelLienzoLayout = new javax.swing.GroupLayout(panelLienzo);
+        panelLienzo.setLayout(panelLienzoLayout);
+        panelLienzoLayout.setHorizontalGroup(
+            panelLienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lienzo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelLienzoLayout.setVerticalGroup(
+            panelLienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        panelConfigurar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Configuración Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
 
         labelBackground.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         labelBackground.setText("Fondo:");
 
         background.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         background.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blanco", "Azul", "Verde", "Lila", "Amarillo" }));
+        background.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backgroundActionPerformed(evt);
+            }
+        });
 
         labelBrush.setText("Estela:");
 
         brush.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blanco", "Azul", "Verde", "Lila", "Amarillo" }));
 
-        javax.swing.GroupLayout configurarLienzoLayout = new javax.swing.GroupLayout(configurarLienzo);
-        configurarLienzo.setLayout(configurarLienzoLayout);
-        configurarLienzoLayout.setHorizontalGroup(
-            configurarLienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(configurarLienzoLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelConfigurarLayout = new javax.swing.GroupLayout(panelConfigurar);
+        panelConfigurar.setLayout(panelConfigurarLayout);
+        panelConfigurarLayout.setHorizontalGroup(
+            panelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConfigurarLayout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(labelBackground)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -92,11 +97,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(brush, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(102, Short.MAX_VALUE))
         );
-        configurarLienzoLayout.setVerticalGroup(
-            configurarLienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(configurarLienzoLayout.createSequentialGroup()
+        panelConfigurarLayout.setVerticalGroup(
+            panelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConfigurarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(configurarLienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelBackground)
                     .addComponent(labelBrush)
@@ -116,8 +121,8 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(configurarLienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(panelLienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(authors)))
@@ -127,9 +132,9 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(lienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelLienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(configurarLienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(authors)
                 .addContainerGap())
@@ -137,6 +142,22 @@ public class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backgroundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backgroundActionPerformed
+       
+        switch(background.getSelectedIndex()){
+            case 0: lienzo.setBackground(Color.white);
+                    break;
+            case 1: lienzo.setBackground(new java.awt.Color(153, 204, 255));
+                    break;
+            case 2: lienzo.setBackground(new java.awt.Color(153, 255, 153));
+                    break;
+            case 3: lienzo.setBackground(new java.awt.Color(204, 153, 255));
+                    break;
+            case 4: lienzo.setBackground(new java.awt.Color(255, 255, 153));
+                    break;
+        }
+    }//GEN-LAST:event_backgroundActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,10 +198,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel authors;
     private javax.swing.JComboBox<String> background;
     private javax.swing.JComboBox<String> brush;
-    private javax.swing.JPanel configurarLienzo;
     private javax.swing.JLabel labelBackground;
     private javax.swing.JLabel labelBrush;
-    private javax.swing.JPanel lienzo;
-    private com.mycompany.practica4diu.Lienzo lienzo1;
+    private com.mycompany.practica4diu.Lienzo lienzo;
+    private javax.swing.JPanel panelConfigurar;
+    private javax.swing.JPanel panelLienzo;
     // End of variables declaration//GEN-END:variables
 }
