@@ -7,8 +7,12 @@ package com.mycompany.practica4diu;
 
 /**
  *
- * @author Usuario
+ * @author Grupo 6
  */
 public class Main {
     
+    public static void main(String args[]) {
+        Interfaz interfaz = new Interfaz();
+        interfaz.setVisible(true);
+    }
 }
