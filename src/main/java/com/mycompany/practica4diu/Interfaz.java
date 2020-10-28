@@ -6,6 +6,10 @@
 package com.mycompany.practica4diu;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +17,7 @@ import java.awt.Color;
  */
 public class Interfaz extends javax.swing.JFrame {
 
+    private Graphics g;
     
     public Interfaz() {
         initComponents();
@@ -41,6 +46,11 @@ public class Interfaz extends javax.swing.JFrame {
         panelLienzo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
 
         lienzo.setBackground(new java.awt.Color(255, 255, 255));
+        lienzo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                lienzoMouseMoved(evt);
+            }
+        });
 
         javax.swing.GroupLayout lienzoLayout = new javax.swing.GroupLayout(lienzo);
         lienzo.setLayout(lienzoLayout);
@@ -79,8 +89,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         labelBrush.setText("Estela:");
 
-        brush.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blanco", "Azul", "Verde", "Lila", "Amarillo" }));
+        brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Negro", "Verde", "Blanco", "Azul", "Amarillo" }));
 
         javax.swing.GroupLayout panelConfigurarLayout = new javax.swing.GroupLayout(panelConfigurar);
         panelConfigurar.setLayout(panelConfigurarLayout);
@@ -93,9 +102,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(133, 133, 133)
                 .addComponent(labelBrush)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(brush, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(brush, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         panelConfigurarLayout.setVerticalGroup(
             panelConfigurarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +167,31 @@ public class Interfaz extends javax.swing.JFrame {
                     break;
         }
     }//GEN-LAST:event_backgroundActionPerformed
+    private void lienzoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseMoved
+        System.out.println("Coordenadas: " + evt.getX() + ", " + evt.getY());
+        g = getGraphics();
+        cambiarColor(g);
+        g.fillOval(evt.getX(), evt.getY(), 10, 10);
+        esperar();
+        g.dispose();
+    }//GEN-LAST:event_lienzoMouseMoved
 
+    private void cambiarColor(Graphics g){
+        String color = brush.getSelectedItem().toString();
+        if(color.equals("Blanco")) g.setColor(Color.white);
+        if(color.equals("Amarillo")) g.setColor(Color.yellow);
+        if(color.equals("Verde")) g.setColor(Color.green);
+        if(color.equals("Azul")) g.setColor(Color.blue);
+        if(color.equals("Negro")) g.setColor(Color.black);
+    }
+    
+    private void esperar(){
+        try {
+            sleep(50);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */

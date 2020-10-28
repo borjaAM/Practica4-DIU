@@ -1,5 +1,6 @@
 package com.mycompany.practica4diu;
 
+import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
@@ -8,4 +9,8 @@ import javax.swing.JPanel;
  */
 public class Lienzo extends JPanel{
     
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+    }
 }
