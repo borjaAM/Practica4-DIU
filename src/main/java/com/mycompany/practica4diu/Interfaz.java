@@ -6,6 +6,9 @@
 package com.mycompany.practica4diu;
 
 import java.awt.Color;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -89,7 +92,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         labelBrush.setText("Estela:");
 
-        brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul Marino", "Rojo", "Naranja", "Verde", "Vino" }));
+        brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul Marino", "Rojo", "Naranja", "Verde", "Vino", "Multicolor" }));
         brush.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 brushActionPerformed(evt);
@@ -178,15 +181,17 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void brushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brushActionPerformed
         switch(brush.getSelectedIndex()){
-            case 0: lienzo.setForeground(new java.awt.Color(0, 51, 204));
+            case 0: lienzo.multicolor(false); lienzo.setForeground(new java.awt.Color(0, 51, 204));
                     break;
-            case 1: lienzo.setForeground(Color.red);
+            case 1: lienzo.multicolor(false);lienzo.setForeground(Color.red);
                     break;
-            case 2: lienzo.setForeground(Color.orange);
+            case 2: lienzo.multicolor(false);lienzo.setForeground(Color.orange);
                     break;
-            case 3: lienzo.setForeground(new java.awt.Color(0, 204, 0));
+            case 3: lienzo.multicolor(false);lienzo.setForeground(new java.awt.Color(0, 204, 0));
                     break;
-            case 4: lienzo.setForeground(new java.awt.Color(179, 0, 59));
+            case 4: lienzo.multicolor(false); lienzo.setForeground(new java.awt.Color(179, 0, 59));
+                    break;
+            case 5: lienzo.multicolor(true);
                     break;
         }
     }//GEN-LAST:event_brushActionPerformed
