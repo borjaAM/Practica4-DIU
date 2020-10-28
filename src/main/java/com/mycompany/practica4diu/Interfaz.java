@@ -7,6 +7,7 @@ package com.mycompany.practica4diu;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,8 @@ import java.util.logging.Logger;
 public class Interfaz extends javax.swing.JFrame {
 
     private Graphics g;
+    private Point[] posiciones = new Point[10];
+    private int pos = 0;
     
     public Interfaz() {
         initComponents();
@@ -169,13 +172,30 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_backgroundActionPerformed
     private void lienzoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseMoved
         System.out.println("Coordenadas: " + evt.getX() + ", " + evt.getY());
-        g = getGraphics();
-        cambiarColor(g);
-        g.fillOval(evt.getX(), evt.getY(), 10, 10);
-        esperar();
-        g.dispose();
+        posiciones[pos] = evt.getPoint();
+        esperar(50);
+        pos++;
+        if(pos == 10){
+            pos = 0;
+            dibujar();
+            esperar(100);
+            borrar();
+        }
     }//GEN-LAST:event_lienzoMouseMoved
 
+    private void dibujar(){
+        g = getGraphics();
+        cambiarColor(g);
+        for(int i = 0; i < posiciones.length; i++) {
+            g.fillOval((int) posiciones[i].getX()+75, (int) posiciones[i].getY()+100, 10, 10);
+        }
+        g.dispose();
+    }
+    
+    private void borrar(){
+        repaint();
+    }
+    
     private void cambiarColor(Graphics g){
         String color = brush.getSelectedItem().toString();
         if(color.equals("Blanco")) g.setColor(Color.white);
@@ -185,9 +205,9 @@ public class Interfaz extends javax.swing.JFrame {
         if(color.equals("Negro")) g.setColor(Color.black);
     }
     
-    private void esperar(){
+    private void esperar(long time){
         try {
-            sleep(50);
+            sleep(time);
         } catch (InterruptedException ex) {
             Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
         }
