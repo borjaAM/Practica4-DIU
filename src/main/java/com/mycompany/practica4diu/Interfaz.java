@@ -6,11 +6,6 @@
 package com.mycompany.practica4diu;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
-import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,9 +13,6 @@ import java.util.logging.Logger;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    private Graphics g;
-    private Point[] posiciones = new Point[10];
-    private int pos = 0;
     
     public Interfaz() {
         initComponents();
@@ -92,7 +84,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         labelBrush.setText("Estela:");
 
-        brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Negro", "Verde", "Blanco", "Azul", "Amarillo" }));
+        brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul Marino", "Rojo", "Naranja", "Verde", "Vino" }));
+        brush.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brushActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelConfigurarLayout = new javax.swing.GroupLayout(panelConfigurar);
         panelConfigurar.setLayout(panelConfigurarLayout);
@@ -160,58 +157,35 @@ public class Interfaz extends javax.swing.JFrame {
         switch(background.getSelectedIndex()){
             case 0: lienzo.setBackground(Color.white);
                     break;
-            case 1: lienzo.setBackground(new java.awt.Color(153, 204, 255));
+            case 1: lienzo.setBackground(new java.awt.Color(51, 173, 255));
                     break;
-            case 2: lienzo.setBackground(new java.awt.Color(153, 255, 153));
+            case 2: lienzo.setBackground(new java.awt.Color(170, 255, 0));
                     break;
             case 3: lienzo.setBackground(new java.awt.Color(204, 153, 255));
                     break;
-            case 4: lienzo.setBackground(new java.awt.Color(255, 255, 153));
+            case 4: lienzo.setBackground(new java.awt.Color(255, 255, 26));
                     break;
         }
     }//GEN-LAST:event_backgroundActionPerformed
     private void lienzoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseMoved
-        System.out.println("Coordenadas: " + evt.getX() + ", " + evt.getY());
-        posiciones[pos] = evt.getPoint();
-        esperar(50);
-        pos++;
-        if(pos == 10){
-            pos = 0;
-            dibujar();
-            esperar(100);
-            borrar();
-        }
+        lienzo.mousePosition(evt.getPoint());
     }//GEN-LAST:event_lienzoMouseMoved
 
-    private void dibujar(){
-        g = getGraphics();
-        cambiarColor(g);
-        for(int i = 0; i < posiciones.length; i++) {
-            g.fillOval((int) posiciones[i].getX()+75, (int) posiciones[i].getY()+100, 10, 10);
+    private void brushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brushActionPerformed
+        switch(brush.getSelectedIndex()){
+            case 0: lienzo.setForeground(new java.awt.Color(0, 51, 204));
+                    break;
+            case 1: lienzo.setForeground(Color.red);
+                    break;
+            case 2: lienzo.setForeground(Color.orange);
+                    break;
+            case 3: lienzo.setForeground(new java.awt.Color(0, 204, 0));
+                    break;
+            case 4: lienzo.setForeground(new java.awt.Color(179, 0, 59));
+                    break;
         }
-        g.dispose();
-    }
-    
-    private void borrar(){
-        repaint();
-    }
-    
-    private void cambiarColor(Graphics g){
-        String color = brush.getSelectedItem().toString();
-        if(color.equals("Blanco")) g.setColor(Color.white);
-        if(color.equals("Amarillo")) g.setColor(Color.yellow);
-        if(color.equals("Verde")) g.setColor(Color.green);
-        if(color.equals("Azul")) g.setColor(Color.blue);
-        if(color.equals("Negro")) g.setColor(Color.black);
-    }
-    
-    private void esperar(long time){
-        try {
-            sleep(time);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    }//GEN-LAST:event_brushActionPerformed
+
     /**
      * @param args the command line arguments
      */
