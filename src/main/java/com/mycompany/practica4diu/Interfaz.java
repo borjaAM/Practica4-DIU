@@ -6,9 +6,6 @@
 package com.mycompany.practica4diu;
 
 import java.awt.Color;
-import static java.lang.Thread.sleep;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +16,7 @@ public class Interfaz extends javax.swing.JFrame {
     
     public Interfaz() {
         initComponents();
+        this.getContentPane().setBackground(new java.awt.Color(230, 255, 230));
     }
 
     /**
@@ -41,7 +39,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelLienzo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        panelLienzo.setBackground(new java.awt.Color(255, 153, 102));
+        panelLienzo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
 
         lienzo.setBackground(new java.awt.Color(255, 255, 255));
         lienzo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -77,7 +76,8 @@ public class Interfaz extends javax.swing.JFrame {
             .addComponent(lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        panelConfigurar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Configuración Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 12))); // NOI18N
+        panelConfigurar.setBackground(new java.awt.Color(153, 153, 255));
+        panelConfigurar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Configuración Lienzo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Yu Gothic UI", 1, 14))); // NOI18N
 
         labelBackground.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         labelBackground.setText("Fondo:");
@@ -90,8 +90,10 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        labelBrush.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         labelBrush.setText("Estela:");
 
+        brush.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
         brush.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul Marino", "Rojo", "Naranja", "Verde", "Vino", "Multicolor" }));
         brush.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +154,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(panelLienzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(authors)
                 .addContainerGap())
         );
