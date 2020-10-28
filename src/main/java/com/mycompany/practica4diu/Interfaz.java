@@ -83,7 +83,7 @@ public class Interfaz extends javax.swing.JFrame {
         labelBackground.setText("Fondo:");
 
         background.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        background.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blanco", "Azul", "Verde", "Lila", "Amarillo" }));
+        background.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blanco", "Azul", "Lima", "Lila", "Amarillo" }));
         background.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backgroundActionPerformed(evt);

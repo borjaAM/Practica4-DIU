@@ -172,7 +172,7 @@
               <StringArray count="5">
                 <StringItem index="0" value="Blanco"/>
                 <StringItem index="1" value="Azul"/>
-                <StringItem index="2" value="Verde"/>
+                <StringItem index="2" value="Lima"/>
                 <StringItem index="3" value="Lila"/>
                 <StringItem index="4" value="Amarillo"/>
               </StringArray>
