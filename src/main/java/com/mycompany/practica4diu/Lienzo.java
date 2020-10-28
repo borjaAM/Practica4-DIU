@@ -28,13 +28,15 @@ public class Lienzo extends JPanel{
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        for (int i = 0; i < 5; i++) {
-            g.fillOval(vect[i].x, vect[i].y, 8, 8);
+        if(paint){
+            for (int i = 0; i < 5; i++) {
+                g.fillOval(vect[i].x, vect[i].y, 8, 8);
+            }
         }
-        
     }
     
     public void mousePosition(Point p){
+        paint = true;
         vect[pos] = new Point(p.x+5, p.y+20);
         pos++;
         if(pos == 5){
@@ -42,5 +44,10 @@ public class Lienzo extends JPanel{
             pos = 0;
             this.repaint();
         }
+    }
+    
+    public void borrarLienzo(){
+        paint = false;
+        this.repaint();
     }
 }

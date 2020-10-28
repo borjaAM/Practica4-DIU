@@ -46,6 +46,11 @@ public class Interfaz extends javax.swing.JFrame {
                 lienzoMouseMoved(evt);
             }
         });
+        lienzo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lienzoMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout lienzoLayout = new javax.swing.GroupLayout(lienzo);
         lienzo.setLayout(lienzoLayout);
@@ -185,6 +190,10 @@ public class Interfaz extends javax.swing.JFrame {
                     break;
         }
     }//GEN-LAST:event_brushActionPerformed
+
+    private void lienzoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseExited
+        lienzo.borrarLienzo();
+    }//GEN-LAST:event_lienzoMouseExited
 
     /**
      * @param args the command line arguments
