@@ -13,7 +13,7 @@ public class Lienzo extends JPanel{
    
     private Color color;
     private Point vect[];
-    private int pos,len;
+    private int pos;
     private boolean paint,mc;
     
     public Lienzo(){
@@ -21,7 +21,6 @@ public class Lienzo extends JPanel{
         vect = new Point[5];
         defaultVect();
         pos =0;
-        len=0;
         paint = false;
         mc=false;
     }
