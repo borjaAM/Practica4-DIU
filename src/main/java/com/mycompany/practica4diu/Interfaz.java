@@ -6,6 +6,9 @@
 package com.mycompany.practica4diu;
 
 import java.awt.Color;
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -179,6 +182,11 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_backgroundActionPerformed
     private void lienzoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lienzoMouseMoved
         lienzo.mousePosition(evt.getPoint());
+        try {
+            sleep(10);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lienzoMouseMoved
 
     private void brushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brushActionPerformed
